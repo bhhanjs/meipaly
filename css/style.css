@@ -1,0 +1,478 @@
+/* css default */
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Container: limite the size of the page layout in variety screen sizes to avoid breaking layout in the big devices */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* utility class */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* HEADER */
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 30px 0;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: #e62b4a;
+}
+
+header nav .active a {
+  color: #e62b4a;
+}
+
+/*  */
+header nav li {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+header .header-content-logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* HERO-BANNER */
+.hero-banner {
+  height: 80vh;
+  background-image: url(../img/home_slider.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-banner button {
+  border: none;
+  padding: 10px 30px;
+  background-color: #e62b4a;
+  text-transform: uppercase;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.hero-banner .sub-title {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.hero-banner h1 {
+  font-size: 75px;
+  text-transform: uppercase;
+  /* line-height = font size + 8px  */
+  line-height: 83px;
+  margin-bottom: 15px;
+}
+.hero-banner button:hover {
+  background-color: #af2239;
+}
+
+/* ANIMATION */
+.hero-banner i {
+  animation-name: arrowGodown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* animation-delay: 10s; */
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* SERVICE */
+/* service-title */
+.service {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.service .sub-title {
+  color: #e62b4a;
+  font-size: 14px;
+}
+
+.service h2 {
+  font-size: 50px;
+}
+
+.service .service-title p:last-of-type {
+  color: #888888;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* service-content */
+.service .service-content .content-item-wrapper {
+  padding: 0 10px;
+}
+
+.service .service-content .content-item {
+  background-color: white;
+  color: black;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.service .service-content .content-item::before {
+  content: "";
+  background-color: #e62b4a;
+  display: inline-block;
+  width: 5px;
+  position: absolute;
+  height: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s linear;
+  /* transition is the changing process from the state A to the state B */
+}
+
+.service .service-content .content-item:hover::before {
+  height: 100%;
+}
+
+.service .service-content .content-item i {
+  font-size: 50px;
+}
+
+.service .service-content .content-item p {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* using selector of the library*/
+.service .slick-dots li button:before {
+  /* need to add the class of the section that the carousel belong to, in case if there are many differrent carousels in the same page */
+  font-size: 15px;
+  color: white;
+}
+
+.service .slick-dots .slick-active button:before {
+  color: #e62b4a;
+}
+
+/* BLOG */
+/* blog-title */
+.blog {
+  background-color: #f3f3f3;
+}
+
+.blog .blog-title {
+  text-align: center;
+}
+.blog .blog-title .sub-title {
+  color: #888888;
+  font-weight: 400;
+  font-size: 14px;
+}
+.blog .blog-title h2 {
+  color: black;
+  font-size: 50px;
+  font-weight: 400;
+}
+.blog .blog-title p {
+  color: #888888;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+/* blog-content */
+.blog .blog-content {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.blog .blog-content img {
+  width: 100%;
+  /* width: calc(100% - 20px) */
+  /* with flex: one line has 3 items => width: calc(100% / 3) */
+  filter: grayscale(50%) contrast(50%);
+
+  /* when we use both width and height at the same time => it stretching our image, losing the original scale => using object-fit to re-size the scale of the image */
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog .blog-content .blog-content-item:first-of-type {
+  /* the starting position and the amount number of column that we want to merge */
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.blog .blog-content .blog-content-item:last-of-type {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+}
+
+/* the cover layer - overlay: when we hover on the picture, there is a cover layer that will cover all the image => Making by position absolute  => we can use a div tag or we can use ::before and ::after */
+
+.blog .blog-content .blog-content-item {
+  position: relative;
+  overflow: hidden;
+}
+.blog .blog-content-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* width: 100%;
+  height: 100%; */
+  background-color: rgba(230, 43, 74, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.blog .blog-content-item .overlay .overlay-icon {
+  text-align: right;
+  transform: translateY(100px);
+  transition: all 0.6s;
+}
+.blog .blog-content-item .overlay .overlay-icon a {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.blog .blog-content-item .overlay .overlay-text {
+  transform: translateY(100px);
+  /* ISSUE: when we use this way to make the element appear by flying up from the bottom, the element content will go out of the area display of its self => this can lead to some risks to mess up the UI => in the parent element, we set the property overflow to hide or deal with element that lying out of its diplay area, so the user can not interact with these element */
+  transition: all 0.6s;
+  color: white;
+}
+
+.blog .blog-content-item .overlay .overlay-text p {
+  color: #888888;
+}
+
+.blog .blog-content-item:hover .overlay {
+  opacity: 1;
+}
+
+.blog .blog-content-item:hover .overlay-icon {
+  transform: translateY(0);
+}
+
+.blog .blog-content-item:hover .overlay-text {
+  transform: translateY(0);
+}
+
+/* NUMBER */
+.number {
+  background-color: black;
+  color: #ffffff;
+}
+
+.number .number-content {
+  display: flex;
+}
+
+.number .number-content .number-item {
+  flex: 1;
+  text-align: center;
+}
+
+.number .number-content .number-item h3 {
+  font-size: 60px;
+  font-weight: 300;
+}
+.number .number-content .number-item p {
+  font-size: 20px;
+  color: #888888;
+}
+
+/* DIGITAL */
+.digital {
+  background-image: url(../img/bussiness_img_1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-attachment: fixed;
+}
+
+.digital .digital-title .sub-title {
+  color: #e62b4a;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.digital .digital-title h2 {
+  font-size: 50px;
+  color: white;
+  font-weight: 400;
+}
+
+.digital .digital-title p:last-of-type {
+  color: #888888;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.digital .digital-content video {
+  width: 100%;
+}
+
+/* CONTACT */
+/* title */
+.contact .contact-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact .contact-title h2 {
+  font-size: 50px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.contact .contact-title p {
+  font-size: 16px;
+  color: #888888;
+  margin-top: 20px;
+}
+/* content */
+.contact .contact-content {
+  display: flex;
+}
+
+.contact .contact-content .contact-content-left {
+  width: 60%;
+}
+.contact .contact-content .contact-content-right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 15px;
+}
+
+.contact .contact-content-right input,
+.contact .contact-content-right textarea {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.contact .contact-content-right textarea {
+  flex: 1;
+  resize: none;
+}
+
+.contact .contact-content-right button {
+  padding: 15px 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer {
+  background-color: black;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+}
+
+.footer-content a {
+  display: inline-block;
+  width: 54px;
+  height: 54px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+  line-height: 54px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+/* BACK TO TOP BUTTON */
+.back-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.cd-top--is-visible {
+  /* back-to-top button visible */
+  visibility: visible;
+  opacity: 1;
+}
+
+/* AMINATION */
+@keyframes arrowGodown {
+  form {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
